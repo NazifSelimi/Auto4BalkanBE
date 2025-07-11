@@ -35,7 +35,7 @@ class CarService
         $query = $this->applySorting($query, $filters['sort_by'] ?? 'created_at_desc');
 
         $perPage = min($filters['per_page'] ?? 20, 50);
-        
+
         return $query->paginate($perPage);
     }
 
@@ -44,19 +44,26 @@ class CarService
      */
     public function getFeaturedCars(?User $user = null): \Illuminate\Database\Eloquent\Collection
     {
-        $query = Car::with(['images', 'seller:id,name,avatar'])
+        $query = Car::with([
+            'images',
+            // ✅ Ensure all fields needed by UserResource are loaded
+            'seller:id,name,email,phone,avatar,email_verified_at,created_at,updated_at',
+        ])
             ->where('featured', true)
             ->where('is_active', true)
             ->latest();
 
         if ($user) {
-            $query->with(['favorites' => function ($q) use ($user) {
-                $q->where('user_id', $user->id);
-            }]);
+            $query->with([
+                'favorites' => function ($q) use ($user) {
+                    $q->where('user_id', $user->id);
+                }
+            ]);
         }
 
         return $query->get();
     }
+
 
     /**
      * Get single car with details
@@ -131,7 +138,13 @@ class CarService
                 $this->uploadCarImages($car, $data['images']);
             }
 
-            return $car->load(['images', 'specifications', 'seller']);
+            return $car->load([
+                'images',
+                'specifications',
+                'seller:id,name,email,phone,avatar,email_verified_at,created_at,updated_at',
+                'favorites' => fn ($q) => $q->where('user_id', $seller->id),
+            ])->loadCount('favorites');
+
         });
     }
 
@@ -237,7 +250,7 @@ class CarService
         foreach ($images as $index => $image) {
             if ($image instanceof UploadedFile) {
                 $path = $image->store('cars', 'public');
-                
+
                 CarImage::create([
                     'car_id' => $car->id,
                     'image_path' => $path,

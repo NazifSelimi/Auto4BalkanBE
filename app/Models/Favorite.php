@@ -14,6 +14,9 @@ class Favorite extends Model
         'user_id',
         'car_id',
     ];
+    protected $with = []; // make sure it's not eager loading by default
+    protected $hidden = ['user', 'car'];
+
 
     /**
      * Get the user that owns the favorite

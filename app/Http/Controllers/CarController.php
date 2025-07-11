@@ -122,23 +122,27 @@ class CarController extends Controller
      */
     public function store(StoreCarRequest $request): JsonResponse
     {
-        try {
             $car = $this->carService->createCar(
                 $request->validated(),
                 $request->user()
             );
 
+            // ✅ Load all required relationships and prevent recursion
+            $car->load([
+                'images',
+                'specifications',
+                'seller:id,name,email,phone,avatar,email_verified_at,created_at,updated_at',
+                'favorites' => fn ($q) => $q->where('user_id', $request->user()->id),
+            ]);
+            $car->loadCount('favorites');
+
             return response()->json([
                 'message' => 'Car listed successfully',
-                'data' => new CarResource($car),
-            ], 201);
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => 'Failed to create car listing',
-                'error' => $e->getMessage(),
-            ], 500);
-        }
+                'car_id' => $car->id,
+            ]);
     }
+
+
 
     /**
      * Update car listing

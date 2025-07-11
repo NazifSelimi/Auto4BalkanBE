@@ -131,7 +131,7 @@ class Car extends Model
         if ($minPrice !== null) {
             $query->where('price', '>=', $minPrice);
         }
-        
+
         if ($maxPrice !== null) {
             $query->where('price', '<=', $maxPrice);
         }
@@ -147,7 +147,7 @@ class Car extends Model
         if ($minYear !== null) {
             $query->where('year', '>=', $minYear);
         }
-        
+
         if ($maxYear !== null) {
             $query->where('year', '<=', $maxYear);
         }
@@ -182,7 +182,7 @@ class Car extends Model
     /**
      * Check if car is favorited by current user
      */
-    public function getIsFavoritedAttribute(): bool
+    public function getIsFavoritedComputedAttribute(): bool
     {
         if (!auth()->check()) {
             return false;
@@ -192,6 +192,7 @@ class Car extends Model
             ->where('user_id', auth()->id())
             ->exists();
     }
+
 
     /**
      * Get primary image URL

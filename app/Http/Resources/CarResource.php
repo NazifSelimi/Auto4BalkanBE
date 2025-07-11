@@ -28,21 +28,54 @@ class CarResource extends JsonResource
             'contact_email' => $this->contact_email,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            
-            // Relationships
-            'seller' => new UserResource($this->whenLoaded('seller')),
-            'images' => CarImageResource::collection($this->whenLoaded('images')),
-            'specifications' => new CarSpecificationResource($this->whenLoaded('specifications')),
-            
+
+            // ✅ Fixed relationships - prevent recursion
+            'seller' => $this->when(
+                $this->relationLoaded('seller'),
+                function () {
+                    // Create a simple seller object without nested relationships
+                    return [
+                        'id' => $this->seller->id,
+                        'name' => $this->seller->name,
+                        'email' => $this->seller->email,
+                        'phone' => $this->seller->phone,
+                        'avatar' => $this->seller->avatar ? asset('storage/' . $this->seller->avatar) : null,
+                        'email_verified_at' => $this->seller->email_verified_at,
+                        'created_at' => $this->seller->created_at,
+                        'updated_at' => $this->seller->updated_at,
+                    ];
+                }
+            ),
+
+            'images' => $this->when(
+                $this->relationLoaded('images'),
+                function () {
+                    return $this->images->map(function ($image) {
+                        return [
+                            'id' => $image->id,
+                            'image_path' => asset('storage/' . $image->image_path),
+                            'is_primary' => $image->is_primary,
+                            'sort_order' => $image->sort_order,
+                        ];
+                    });
+                }
+            ),
+
+            'specifications' => $this->when(
+                $this->relationLoaded('specifications'),
+                function () {
+                    return new CarSpecificationResource($this->specifications);
+                }
+            ),
+
             // Computed attributes
             'favorites_count' => $this->favorites_count ?? 0,
             'is_favorited' => $this->when(
-                auth()->check(),
-                function () {
-                    return $this->favorites->where('user_id', auth()->id())->isNotEmpty();
-                },
+                auth()->check() && $this->relationLoaded('favorites'),
+                fn () => $this->favorites->where('user_id', auth()->id())->isNotEmpty(),
                 false
             ),
+
             'primary_image' => $this->when(
                 $this->relationLoaded('images'),
                 function () {
