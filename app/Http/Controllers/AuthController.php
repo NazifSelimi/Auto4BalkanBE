@@ -13,6 +13,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+/**
+ * Class AuthController
+ *
+ * @package App\Http\Controllers
+ */
 class AuthController extends Controller
 {
     public function __construct(
@@ -29,8 +34,10 @@ class AuthController extends Controller
 
             return response()->json([
                 'message' => 'Registration successful',
-                'user' => new UserResource($result['user']),
-                'token' => $result['token'],
+                'data' => [
+                    'user' => new UserResource($result['user']),
+                    'token' => $result['token'],
+                ],
             ], 201);
         } catch (\Exception $e) {
             return response()->json([
@@ -53,8 +60,10 @@ class AuthController extends Controller
 
             return response()->json([
                 'message' => 'Login successful',
-                'user' => new UserResource($result['user']),
-                'token' => $result['token'],
+                'data' => [
+                    'user' => new UserResource($result['user']),
+                    'token' => $result['token'],
+                ],
             ]);
         } catch (AuthenticationException $e) {
             return response()->json([
@@ -74,7 +83,9 @@ class AuthController extends Controller
     public function user(Request $request): JsonResponse
     {
         return response()->json([
-            'user' => new UserResource($request->user()),
+            'data' => [
+                'user' => new UserResource($request->user()),
+            ],
         ]);
     }
 
@@ -129,7 +140,9 @@ class AuthController extends Controller
 
             return response()->json([
                 'message' => 'Profile updated successfully',
-                'user' => new UserResource($user),
+                'data' => [
+                    'user' => new UserResource($user),
+                ],
             ]);
         } catch (\Exception $e) {
             return response()->json([
@@ -152,8 +165,10 @@ class AuthController extends Controller
 
             return response()->json([
                 'message' => 'Avatar uploaded successfully',
-                'avatar_url' => $avatarUrl,
-                'user' => new UserResource($request->user()->fresh()),
+                'data' => [
+                    'avatar_url' => $avatarUrl,
+                    'user' => new UserResource($request->user()->fresh()),
+                ],
             ]);
         } catch (\Exception $e) {
             return response()->json([
@@ -171,7 +186,9 @@ class AuthController extends Controller
         try {
             $stats = $this->authService->getUserStats($request->user());
 
-            return response()->json($stats);
+            return response()->json([
+                'data' => $stats,
+            ]);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Failed to fetch user statistics',

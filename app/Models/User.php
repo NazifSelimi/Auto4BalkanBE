@@ -9,10 +9,30 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * Class User
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string|null $phone
+ * @property string|null $avatar
+ * @property \Illuminate\Support\Carbon|null $email_verified_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|Car[] $cars
+ * @property-read \Illuminate\Database\Eloquent\Collection|Favorite[] $favorites
+ * @property-read \Illuminate\Database\Eloquent\Collection|Car[] $favoriteCars
+ * @property-read int $active_listings_count
+ * @property-read int $total_views
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'name',
         'email',
@@ -22,18 +42,28 @@ class User extends Authenticatable
         'email_verified_at',
     ];
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array<int, string>
+     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
 
     /**
-     * Get cars listed by this user
+     * Get cars listed by this user.
      */
     public function cars(): HasMany
     {
@@ -41,7 +71,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get user's favorites
+     * Get user's favorites.
      */
     public function favorites(): HasMany
     {
@@ -49,7 +79,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get cars favorited by this user
+     * Get cars favorited by this user.
      */
     public function favoriteCars(): BelongsToMany
     {
@@ -58,7 +88,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Check if user has favorited a car
+     * Check if user has favorited a car.
      */
     public function hasFavorited(Car $car): bool
     {
@@ -66,7 +96,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get user's active listings count
+     * Get user's active listings count.
      */
     public function getActiveListingsCountAttribute(): int
     {
@@ -74,7 +104,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get user's total views count
+     * Get user's total views count.
      */
     public function getTotalViewsAttribute(): int
     {

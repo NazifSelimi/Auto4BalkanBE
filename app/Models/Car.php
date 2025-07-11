@@ -11,10 +11,45 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Builder;
 
+/**
+ * Class Car
+ *
+ * @property int $id
+ * @property string $title
+ * @property float $price
+ * @property int $year
+ * @property int $mileage
+ * @property string $fuel_type
+ * @property string $transmission
+ * @property string $location
+ * @property string $description
+ * @property int $seller_id
+ * @property bool $featured
+ * @property bool $has_360_view
+ * @property string|null $video_url
+ * @property int $views
+ * @property bool $is_active
+ * @property string $contact_phone
+ * @property string $contact_email
+ * @property-read User $seller
+ * @property-read \Illuminate\Database\Eloquent\Collection|CarImage[] $images
+ * @property-read CarImage|null $primaryImage
+ * @property-read CarSpecification|null $specifications
+ * @property-read \Illuminate\Database\Eloquent\Collection|Favorite[] $favorites
+ * @property-read \Illuminate\Database\Eloquent\Collection|User[] $favoritedBy
+ * @property-read string $formatted_price
+ * @property-read string $formatted_mileage
+ * @property-read int $age
+ */
 class Car extends Model
 {
     use HasFactory, SoftDeletes;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'title',
         'price',
@@ -34,6 +69,11 @@ class Car extends Model
         'contact_email',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     protected $casts = [
         'price' => 'decimal:2',
         'year' => 'integer',
@@ -44,10 +84,17 @@ class Car extends Model
         'views' => 'integer',
     ];
 
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array<int, string>
+     */
     protected $with = ['images'];
 
+    // Relationships
+
     /**
-     * Get the seller of the car
+     * Get the seller of the car.
      */
     public function seller(): BelongsTo
     {
@@ -55,7 +102,7 @@ class Car extends Model
     }
 
     /**
-     * Get car images
+     * Get car images.
      */
     public function images(): HasMany
     {
@@ -63,7 +110,7 @@ class Car extends Model
     }
 
     /**
-     * Get primary image
+     * Get primary image.
      */
     public function primaryImage(): HasOne
     {
@@ -71,7 +118,7 @@ class Car extends Model
     }
 
     /**
-     * Get car specifications
+     * Get car specifications.
      */
     public function specifications(): HasOne
     {
@@ -79,7 +126,7 @@ class Car extends Model
     }
 
     /**
-     * Get car favorites
+     * Get car favorites.
      */
     public function favorites(): HasMany
     {
@@ -87,7 +134,7 @@ class Car extends Model
     }
 
     /**
-     * Users who favorited this car
+     * Users who favorited this car.
      */
     public function favoritedBy(): BelongsToMany
     {
@@ -95,8 +142,10 @@ class Car extends Model
             ->withTimestamps();
     }
 
+    // Scopes
+
     /**
-     * Scope for active cars
+     * Scope for active cars.
      */
     public function scopeActive(Builder $query): Builder
     {
@@ -104,7 +153,7 @@ class Car extends Model
     }
 
     /**
-     * Scope for featured cars
+     * Scope for featured cars.
      */
     public function scopeFeatured(Builder $query): Builder
     {
@@ -112,7 +161,7 @@ class Car extends Model
     }
 
     /**
-     * Scope for search
+     * Scope for search.
      */
     public function scopeSearch(Builder $query, string $term): Builder
     {
@@ -124,7 +173,7 @@ class Car extends Model
     }
 
     /**
-     * Scope for price range
+     * Scope for price range.
      */
     public function scopePriceRange(Builder $query, ?float $minPrice, ?float $maxPrice): Builder
     {
@@ -140,7 +189,7 @@ class Car extends Model
     }
 
     /**
-     * Scope for year range
+     * Scope for year range.
      */
     public function scopeYearRange(Builder $query, ?int $minYear, ?int $maxYear): Builder
     {
@@ -155,8 +204,10 @@ class Car extends Model
         return $query;
     }
 
+    // Accessors
+
     /**
-     * Get formatted price
+     * Get formatted price.
      */
     public function getFormattedPriceAttribute(): string
     {
@@ -164,7 +215,7 @@ class Car extends Model
     }
 
     /**
-     * Get formatted mileage
+     * Get formatted mileage.
      */
     public function getFormattedMileageAttribute(): string
     {
@@ -172,34 +223,14 @@ class Car extends Model
     }
 
     /**
-     * Get car age
+     * Get car age.
      */
     public function getAgeAttribute(): int
     {
         return date('Y') - $this->year;
     }
 
-    /**
-     * Check if car is favorited by current user
-     */
-    public function getIsFavoritedComputedAttribute(): bool
-    {
-        if (!auth()->check()) {
-            return false;
-        }
-
-        return $this->favorites()
-            ->where('user_id', auth()->id())
-            ->exists();
-    }
-
-
-    /**
-     * Get primary image URL
-     */
-    public function getPrimaryImageUrlAttribute(): ?string
-    {
-        $primaryImage = $this->images->where('is_primary', true)->first();
-        return $primaryImage ? asset('storage/' . $primaryImage->image_path) : null;
-    }
+    // The following accessors should be moved to a resource or service for best practice
+    // public function getIsFavoritedComputedAttribute(): bool { ... }
+    // public function getPrimaryImageUrlAttribute(): ?string { ... }
 }

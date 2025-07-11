@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
+/**
+ * Class FileUploadService
+ *
+ * Handles file and image uploads, deletions, and resizing.
+ *
+ * @package App\Services
+ */
 class FileUploadService
 {
     /**

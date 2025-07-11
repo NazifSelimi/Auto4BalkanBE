@@ -9,10 +9,20 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 
+/**
+ * Class AuthService
+ *
+ * Handles authentication and user management logic.
+ *
+ * @package App\Services
+ */
 class AuthService
 {
     /**
-     * Register a new user
+     * Register a new user.
+     *
+     * @param array $data
+     * @return array
      */
     public function register(array $data): array
     {
@@ -32,7 +42,12 @@ class AuthService
     }
 
     /**
-     * Login user
+     * Login user.
+     *
+     * @param array $credentials
+     * @param bool $remember
+     * @return array
+     * @throws AuthenticationException
      */
     public function login(array $credentials, bool $remember = false): array
     {
@@ -55,7 +70,10 @@ class AuthService
     }
 
     /**
-     * Logout user
+     * Logout user.
+     *
+     * @param User $user
+     * @return void
      */
     public function logout(User $user): void
     {
@@ -63,7 +81,10 @@ class AuthService
     }
 
     /**
-     * Logout from all devices
+     * Logout from all devices.
+     *
+     * @param User $user
+     * @return void
      */
     public function logoutFromAllDevices(User $user): void
     {
@@ -71,7 +92,11 @@ class AuthService
     }
 
     /**
-     * Update user profile
+     * Update user profile.
+     *
+     * @param User $user
+     * @param array $data
+     * @return User
      */
     public function updateProfile(User $user, array $data): User
     {
@@ -81,7 +106,11 @@ class AuthService
     }
 
     /**
-     * Upload user avatar
+     * Upload user avatar.
+     *
+     * @param User $user
+     * @param UploadedFile $file
+     * @return string
      */
     public function uploadAvatar(User $user, UploadedFile $file): string
     {
@@ -99,7 +128,12 @@ class AuthService
     }
 
     /**
-     * Change user password
+     * Change user password.
+     *
+     * @param User $user
+     * @param string $currentPassword
+     * @param string $newPassword
+     * @return bool
      */
     public function changePassword(User $user, string $currentPassword, string $newPassword): bool
     {
@@ -118,7 +152,10 @@ class AuthService
     }
 
     /**
-     * Get user statistics
+     * Get user statistics.
+     *
+     * @param User $user
+     * @return array
      */
     public function getUserStats(User $user): array
     {

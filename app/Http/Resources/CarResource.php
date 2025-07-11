@@ -5,9 +5,20 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * Class CarResource
+ *
+ * @property-read \App\Models\Car $resource
+ */
 class CarResource extends JsonResource
 {
-    public function toArray(Request $request): array
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  Request  $request
+     * @return array<string, mixed>
+     */
+    public function toArray($request): array
     {
         return [
             'id' => $this->id,
@@ -29,43 +40,31 @@ class CarResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            // ✅ Fixed relationships - prevent recursion
+            // Seller info (null-safe)
             'seller' => $this->when(
-                $this->relationLoaded('seller'),
-                function () {
-                    // Create a simple seller object without nested relationships
-                    return [
-                        'id' => $this->seller->id,
-                        'name' => $this->seller->name,
-                        'email' => $this->seller->email,
-                        'phone' => $this->seller->phone,
-                        'avatar' => $this->seller->avatar ? asset('storage/' . $this->seller->avatar) : null,
-                        'email_verified_at' => $this->seller->email_verified_at,
-                        'created_at' => $this->seller->created_at,
-                        'updated_at' => $this->seller->updated_at,
-                    ];
-                }
+                $this->relationLoaded('seller') && $this->seller,
+                fn () => [
+                    'id' => $this->seller?->id,
+                    'name' => $this->seller?->name,
+                    'email' => $this->seller?->email,
+                    'phone' => $this->seller?->phone,
+                    'avatar' => $this->seller?->avatar ? asset('storage/' . $this->seller->avatar) : null,
+                    'email_verified_at' => $this->seller?->email_verified_at,
+                    'created_at' => $this->seller?->created_at,
+                    'updated_at' => $this->seller?->updated_at,
+                ]
             ),
 
+            // Images as resources
             'images' => $this->when(
                 $this->relationLoaded('images'),
-                function () {
-                    return $this->images->map(function ($image) {
-                        return [
-                            'id' => $image->id,
-                            'image_path' => asset('storage/' . $image->image_path),
-                            'is_primary' => $image->is_primary,
-                            'sort_order' => $image->sort_order,
-                        ];
-                    });
-                }
+                fn () => CarImageResource::collection($this->images)
             ),
 
+            // Specifications as resource
             'specifications' => $this->when(
-                $this->relationLoaded('specifications'),
-                function () {
-                    return new CarSpecificationResource($this->specifications);
-                }
+                $this->relationLoaded('specifications') && $this->specifications,
+                fn () => new CarSpecificationResource($this->specifications)
             ),
 
             // Computed attributes
@@ -76,6 +75,7 @@ class CarResource extends JsonResource
                 false
             ),
 
+            // Primary image (null-safe)
             'primary_image' => $this->when(
                 $this->relationLoaded('images'),
                 function () {

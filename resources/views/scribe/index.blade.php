@@ -133,7 +133,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: June 17, 2025</li>
+        <li>Last updated: July 11, 2025</li>
     </ul>
 </div>
 
@@ -176,7 +176,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     \"name\": \"b\",
     \"email\": \"zbailey@example.net\",
     \"password\": \"architecto\",
-    \"phone\": \"ngzmiyvdljnikhwa\"
+    \"phone\": \"ngzmiyvdljnikhwa\",
+    \"password_confirmation\": \"architecto\"
 }"
 </code></pre></div>
 
@@ -195,7 +196,8 @@ let body = {
     "name": "b",
     "email": "zbailey@example.net",
     "password": "architecto",
-    "phone": "ngzmiyvdljnikhwa"
+    "phone": "ngzmiyvdljnikhwa",
+    "password_confirmation": "architecto"
 };
 
 fetch(url, {
@@ -321,6 +323,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="body">
     <br>
 <p>Must not be greater than 20 characters. Example: <code>ngzmiyvdljnikhwa</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password_confirmation"                data-endpoint="POSTapi-auth-register"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -535,18 +548,898 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 vary: Origin
-set-cookie: XSRF-TOKEN=eyJpdiI6ImNrTk9YcitocTNyVk44a2lwUS9Ocmc9PSIsInZhbHVlIjoiYmROcE5KS2hYWXd5K2tKMnpqRnVBM28xSkQ0UndUd1ByMWNLNkY1MXdMODBsYVFUQ0RNVXY4TUlNZTZ2Q20vdzZIMDQwM0l5NG1acnJuSStCN0p1eHVPQXFydW10bXZ6WXFaQ1pkYkpwalF2S0hsd2hJcTV3V2Zwc0MvOXJGcDMiLCJtYWMiOiIzZWZmZmUwYmYxOTBmYjU4ZDkxOTQ4Zjg5ZmVkNWVkMDVhODQ2ODRhMWUwMDAxNzg4ZmI3MDg0MTFkOWVlMzVhIiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; samesite=lax; laravel_session=eyJpdiI6IjZPbFBrN1cvdkRmb2tueXRZakMxWUE9PSIsInZhbHVlIjoiUEVoZ0N2UEQrZ3NtdnV0RmFUdjdiZDFUZEpjQWZmMzdxck81eHRleXpHZjZQclBGZGF5cG9obktILzR0NkJsT1grRVRpdzdXSDY0aGxXY2tEckxRZ2kzSExjMGQ2aTkwMzlHZ0tlWFQwUy9ZRU9HSEpyL2NacnRPZHVXVFJhWWgiLCJtYWMiOiJlODE2ZGQ3NGFmZTk5NDU4ZjY1M2Q0Y2ZlYjk4YWFkM2Y1YzcxNzBlNzhlZjhkZDc2MGY2OWQ0NmUyZjJhZTViIiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [],
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 46,
+            &quot;title&quot;: &quot;Mercedes C-Class 2003&quot;,
+            &quot;price&quot;: &quot;55442.00&quot;,
+            &quot;year&quot;: 2022,
+            &quot;mileage&quot;: 159837,
+            &quot;fuel_type&quot;: &quot;hybrid&quot;,
+            &quot;transmission&quot;: &quot;automatic&quot;,
+            &quot;location&quot;: &quot;Rosaview, Tennessee&quot;,
+            &quot;description&quot;: &quot;Odio laborum vitae illo sed nostrum sunt. In minima temporibus qui est dolorem eos corporis. Impedit non quam sequi debitis vero sit.\n\nEst et quia dolor dolores est similique voluptas quia. Sed amet tempora error impedit iure unde non. Natus quae ipsa inventore accusantium ipsum quisquam qui. Quo sunt suscipit laudantium maiores dolor.\n\nDebitis voluptas est voluptatibus quia quibusdam ut aut. Dolorum illum neque dolorem qui similique et. Molestias asperiores harum consequatur reprehenderit est. Consequatur minus tempora aut totam. Unde vitae provident nobis et ab modi.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 19,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;(615) 722-7808&quot;,
+            &quot;contact_email&quot;: &quot;morris88@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:25.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:25.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Test User&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 46,
+                &quot;engine&quot;: &quot;2.5L V6&quot;,
+                &quot;power&quot;: &quot;220 HP&quot;,
+                &quot;color&quot;: &quot;Green&quot;,
+                &quot;doors&quot;: 4,
+                &quot;seats&quot;: 4,
+                &quot;body_type&quot;: &quot;Convertible&quot;,
+                &quot;drive_type&quot;: &quot;fwd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Mercedes C-Class 1973&quot;,
+            &quot;price&quot;: &quot;16544.00&quot;,
+            &quot;year&quot;: 2020,
+            &quot;mileage&quot;: 87117,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;manual&quot;,
+            &quot;location&quot;: &quot;West Jovanhaven, Arkansas&quot;,
+            &quot;description&quot;: &quot;Ut laborum amet sit qui et. Nam sapiente pariatur voluptates et quos. Ut ut id voluptatibus quaerat.\n\nSaepe dicta quo eveniet sapiente consectetur. Et non velit quae veniam dolor aliquam. Est earum distinctio adipisci autem consequatur omnis. Velit dolores sequi dolorem nulla dolores iusto. Qui voluptatem maiores dolorum dolorem sit.\n\nNisi odit nihil quia hic et. Quibusdam dolor magnam placeat quae distinctio laudantium sunt. Enim ducimus corporis perspiciatis sed id recusandae sit provident. Architecto nihil ipsa explicabo quis.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 62,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1-219-858-2231&quot;,
+            &quot;contact_email&quot;: &quot;pasquale21@example.org&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Test User&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 2,
+                &quot;engine&quot;: &quot;3.0L V6&quot;,
+                &quot;power&quot;: &quot;150 HP&quot;,
+                &quot;color&quot;: &quot;Silver&quot;,
+                &quot;doors&quot;: 3,
+                &quot;seats&quot;: 7,
+                &quot;body_type&quot;: &quot;Hatchback&quot;,
+                &quot;drive_type&quot;: &quot;rwd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;BMW 3 Series 2019&quot;,
+            &quot;price&quot;: &quot;5270.00&quot;,
+            &quot;year&quot;: 2022,
+            &quot;mileage&quot;: 168775,
+            &quot;fuel_type&quot;: &quot;gasoline&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;East Ramonfort, Tennessee&quot;,
+            &quot;description&quot;: &quot;Corporis est molestias et eum. Recusandae aut distinctio laudantium commodi. Qui vero dolore eum occaecati et ullam. Porro ea et sit aspernatur dolorum deserunt.\n\nTenetur officia beatae eum perferendis repellat. Quia quas odio veniam fugit dolor eos dolores. Quis voluptas dolor autem ut. Quod rerum ea impedit quia laudantium.\n\nArchitecto quam in tempora optio repellat iste. Possimus necessitatibus dolor facere vel. Nostrum suscipit eum numquam est voluptate. Minus deserunt quia corrupti quibusdam.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: true,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 753,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;267-274-1984&quot;,
+            &quot;contact_email&quot;: &quot;ckunze@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Admin User&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 3,
+                &quot;engine&quot;: &quot;3.0L V6&quot;,
+                &quot;power&quot;: &quot;180 HP&quot;,
+                &quot;color&quot;: &quot;Gray&quot;,
+                &quot;doors&quot;: 4,
+                &quot;seats&quot;: 4,
+                &quot;body_type&quot;: &quot;Convertible&quot;,
+                &quot;drive_type&quot;: &quot;rwd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Mazda 6 1990&quot;,
+            &quot;price&quot;: &quot;60967.00&quot;,
+            &quot;year&quot;: 2013,
+            &quot;mileage&quot;: 116087,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;Schummtown, Delaware&quot;,
+            &quot;description&quot;: &quot;Sed tempora delectus incidunt placeat vel asperiores. Ea qui nemo quia totam.\n\nA temporibus culpa laudantium amet quod. Et commodi autem et dolore repellat odio rerum. Voluptatum dolor sunt quae numquam deleniti fugit. Nihil blanditiis atque accusantium quisquam quibusdam non.\n\nEveniet atque nisi accusamus rerum velit. Deserunt temporibus cupiditate et est excepturi tenetur. Ea sed ipsa deserunt ut.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: &quot;https://thiel.com/a-omnis-quia-autem-iusto-dolore.html&quot;,
+            &quot;views&quot;: 195,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;586-956-4214&quot;,
+            &quot;contact_email&quot;: &quot;micheal00@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Admin User&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 4,
+                &quot;engine&quot;: &quot;1.6L I4&quot;,
+                &quot;power&quot;: &quot;350 HP&quot;,
+                &quot;color&quot;: &quot;Silver&quot;,
+                &quot;doors&quot;: 4,
+                &quot;seats&quot;: 7,
+                &quot;body_type&quot;: &quot;Pickup&quot;,
+                &quot;drive_type&quot;: &quot;awd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;title&quot;: &quot;Mercedes C-Class 1988&quot;,
+            &quot;price&quot;: &quot;78138.00&quot;,
+            &quot;year&quot;: 2022,
+            &quot;mileage&quot;: 110205,
+            &quot;fuel_type&quot;: &quot;hybrid&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;North Hazlebury, Washington&quot;,
+            &quot;description&quot;: &quot;Nisi dolores voluptas dolorum minus est. Recusandae in repudiandae dolore officiis. Dicta tenetur dolor est sunt nostrum delectus.\n\nAut aut et fugit in. Et sint illum illo molestias fuga laboriosam quod consequatur. Molestiae ullam aut libero quae quo temporibus. Aperiam sit repellat possimus doloribus blanditiis blanditiis odio.\n\nLabore ipsam vel voluptatem ipsam laboriosam officiis expedita. Aspernatur quia quidem ut est quaerat. Sed unde omnis consequuntur fugit. Perferendis et totam possimus exercitationem tenetur exercitationem qui.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: true,
+            &quot;video_url&quot;: &quot;http://hoppe.com/aut-nostrum-error-totam-fugit-totam-maxime.html&quot;,
+            &quot;views&quot;: 716,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;802.338.9544&quot;,
+            &quot;contact_email&quot;: &quot;gerard10@example.net&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Admin User&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 5,
+                &quot;engine&quot;: &quot;1.6L I4&quot;,
+                &quot;power&quot;: &quot;200 HP&quot;,
+                &quot;color&quot;: &quot;Gold&quot;,
+                &quot;doors&quot;: 2,
+                &quot;seats&quot;: 5,
+                &quot;body_type&quot;: &quot;Hatchback&quot;,
+                &quot;drive_type&quot;: &quot;fwd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;title&quot;: &quot;Toyota Camry 1971&quot;,
+            &quot;price&quot;: &quot;61599.00&quot;,
+            &quot;year&quot;: 2015,
+            &quot;mileage&quot;: 6733,
+            &quot;fuel_type&quot;: &quot;hybrid&quot;,
+            &quot;transmission&quot;: &quot;cvt&quot;,
+            &quot;location&quot;: &quot;Port Ginaside, District of Columbia&quot;,
+            &quot;description&quot;: &quot;Eum totam molestias dolores nobis. Architecto accusantium sed voluptate nulla labore possimus rerum. Aliquid doloribus aut dolore eum. Corrupti dolor harum fugiat laudantium.\n\nCommodi beatae vitae doloribus amet aut. Et sed enim quod omnis ipsam illo. Saepe provident consequuntur et et eveniet accusantium.\n\nSit libero qui eligendi facere quas. Sed aut aut natus maxime. Unde vero aut consequuntur molestias.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: true,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 561,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;920.689.3892&quot;,
+            &quot;contact_email&quot;: &quot;bwolf@example.org&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Admin User&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 6,
+                &quot;engine&quot;: &quot;4.0L V8&quot;,
+                &quot;power&quot;: &quot;180 HP&quot;,
+                &quot;color&quot;: &quot;Red&quot;,
+                &quot;doors&quot;: 3,
+                &quot;seats&quot;: 7,
+                &quot;body_type&quot;: &quot;Wagon&quot;,
+                &quot;drive_type&quot;: &quot;4wd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;title&quot;: &quot;Toyota Camry 1985&quot;,
+            &quot;price&quot;: &quot;14752.00&quot;,
+            &quot;year&quot;: 2016,
+            &quot;mileage&quot;: 150848,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;automatic&quot;,
+            &quot;location&quot;: &quot;West Nora, Virginia&quot;,
+            &quot;description&quot;: &quot;Accusantium eius quisquam voluptates quibusdam. Delectus sunt earum ea accusamus accusamus quas nisi. In et quia aut facere.\n\nLaborum tempora reiciendis eum. Exercitationem reiciendis eligendi corrupti vel voluptatum veniam omnis. Sit ea labore dolorem officiis voluptatem fugit.\n\nExpedita quia ut optio vero minima sit sit. Et similique est sint officia. Aut adipisci quod facere temporibus.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: &quot;https://www.hahn.com/et-aut-soluta-laborum-ad&quot;,
+            &quot;views&quot;: 276,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;240.842.8645&quot;,
+            &quot;contact_email&quot;: &quot;friesen.nannie@example.org&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Admin User&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 7,
+                &quot;engine&quot;: &quot;2.5L V6&quot;,
+                &quot;power&quot;: &quot;250 HP&quot;,
+                &quot;color&quot;: &quot;Green&quot;,
+                &quot;doors&quot;: 4,
+                &quot;seats&quot;: 2,
+                &quot;body_type&quot;: &quot;Coupe&quot;,
+                &quot;drive_type&quot;: &quot;awd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;title&quot;: &quot;BMW 3 Series 2014&quot;,
+            &quot;price&quot;: &quot;44437.00&quot;,
+            &quot;year&quot;: 2015,
+            &quot;mileage&quot;: 66879,
+            &quot;fuel_type&quot;: &quot;diesel&quot;,
+            &quot;transmission&quot;: &quot;cvt&quot;,
+            &quot;location&quot;: &quot;West Kennyport, Wyoming&quot;,
+            &quot;description&quot;: &quot;Dicta est vero accusantium dolor autem sit dicta ut. Corrupti accusantium nostrum natus quia tempora magni. Iste minima id beatae.\n\nDolore quos non corporis nostrum enim. Eos aut occaecati saepe suscipit. Aspernatur quia voluptate nostrum sint quae in repudiandae ea.\n\nModi ex cumque nam placeat ut. Voluptas aut porro et voluptas ratione blanditiis error. Quae architecto ipsa mollitia architecto maiores enim perferendis. Possimus voluptas reiciendis aut eos rem quisquam ad quis.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 858,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1-580-387-1539&quot;,
+            &quot;contact_email&quot;: &quot;mjakubowski@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Daphney Beer&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 8,
+                &quot;engine&quot;: &quot;3.0L V6&quot;,
+                &quot;power&quot;: &quot;180 HP&quot;,
+                &quot;color&quot;: &quot;Silver&quot;,
+                &quot;doors&quot;: 4,
+                &quot;seats&quot;: 5,
+                &quot;body_type&quot;: &quot;Wagon&quot;,
+                &quot;drive_type&quot;: &quot;rwd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;title&quot;: &quot;BMW 3 Series 1976&quot;,
+            &quot;price&quot;: &quot;6701.00&quot;,
+            &quot;year&quot;: 2013,
+            &quot;mileage&quot;: 108863,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;Lake Jaspermouth, Georgia&quot;,
+            &quot;description&quot;: &quot;Nemo illum debitis sequi eum soluta et. Natus et ipsam quisquam in et. Quas et molestiae excepturi dicta.\n\nAliquid dolorem quisquam ullam eum. Sint et culpa vel quaerat labore ipsum ea. Est quisquam omnis ex saepe rerum quidem. In eligendi dolorem reprehenderit sapiente molestiae.\n\nPossimus excepturi et magnam quas nisi ducimus similique. Nam ab expedita voluptas dolor iste. Excepturi ad rerum voluptas laboriosam porro iure. Hic repellendus ut eum eum quas ea laudantium esse.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 202,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1.423.386.5898&quot;,
+            &quot;contact_email&quot;: &quot;josiane.ebert@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Blanca Ryan Jr.&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 9,
+                &quot;engine&quot;: &quot;3.0L V6&quot;,
+                &quot;power&quot;: &quot;350 HP&quot;,
+                &quot;color&quot;: &quot;White&quot;,
+                &quot;doors&quot;: 2,
+                &quot;seats&quot;: 4,
+                &quot;body_type&quot;: &quot;Sedan&quot;,
+                &quot;drive_type&quot;: &quot;4wd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;title&quot;: &quot;Honda Accord 1975&quot;,
+            &quot;price&quot;: &quot;53010.00&quot;,
+            &quot;year&quot;: 2012,
+            &quot;mileage&quot;: 22470,
+            &quot;fuel_type&quot;: &quot;hybrid&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;Zemlakville, Wyoming&quot;,
+            &quot;description&quot;: &quot;Laudantium quod rerum dolores temporibus eligendi. Harum sint saepe consequatur error. Harum commodi molestias accusamus error dolorem reiciendis. Ullam non sit doloribus quisquam.\n\nConsequatur dolor odio in. Dolorem rerum omnis vel. Deserunt excepturi debitis nisi id et dignissimos praesentium.\n\nAliquid necessitatibus sit voluptas molestiae deserunt minus. Laboriosam occaecati impedit qui ad voluptatem omnis necessitatibus accusantium. Soluta id libero nisi similique. Tenetur illo nam nam enim omnis praesentium.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: &quot;http://www.olson.info/dolorem-blanditiis-repellat-ut-ut-provident.html&quot;,
+            &quot;views&quot;: 464,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1-586-234-4913&quot;,
+            &quot;contact_email&quot;: &quot;schiller.titus@example.org&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Blanca Ryan Jr.&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 10,
+                &quot;engine&quot;: &quot;4.0L V8&quot;,
+                &quot;power&quot;: &quot;150 HP&quot;,
+                &quot;color&quot;: &quot;Silver&quot;,
+                &quot;doors&quot;: 5,
+                &quot;seats&quot;: 8,
+                &quot;body_type&quot;: &quot;Sedan&quot;,
+                &quot;drive_type&quot;: &quot;rwd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;title&quot;: &quot;Volkswagen Passat 1972&quot;,
+            &quot;price&quot;: &quot;64390.00&quot;,
+            &quot;year&quot;: 2020,
+            &quot;mileage&quot;: 168987,
+            &quot;fuel_type&quot;: &quot;diesel&quot;,
+            &quot;transmission&quot;: &quot;automatic&quot;,
+            &quot;location&quot;: &quot;Rogahnbury, Ohio&quot;,
+            &quot;description&quot;: &quot;Id qui qui dignissimos repellendus eum ducimus molestiae. Nemo quidem saepe voluptas laborum velit placeat.\n\nSaepe vel aut expedita commodi eos ut maiores. Animi dolorem rem et ea voluptatem non. Molestias reprehenderit incidunt facilis fuga dolore debitis. Qui sapiente sapiente vel at.\n\nConsequatur reprehenderit in ut temporibus quos recusandae molestias voluptas. Aperiam debitis et illum quia fuga beatae. Et dignissimos unde est placeat voluptas sapiente quas mollitia.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 658,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;(763) 360-4252&quot;,
+            &quot;contact_email&quot;: &quot;pagac.mckenna@example.net&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Blanca Ryan Jr.&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 11,
+                &quot;engine&quot;: &quot;2.5L V6&quot;,
+                &quot;power&quot;: &quot;250 HP&quot;,
+                &quot;color&quot;: &quot;Brown&quot;,
+                &quot;doors&quot;: 3,
+                &quot;seats&quot;: 2,
+                &quot;body_type&quot;: &quot;Coupe&quot;,
+                &quot;drive_type&quot;: &quot;4wd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;title&quot;: &quot;Audi A4 1997&quot;,
+            &quot;price&quot;: &quot;10351.00&quot;,
+            &quot;year&quot;: 2017,
+            &quot;mileage&quot;: 75071,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;automatic&quot;,
+            &quot;location&quot;: &quot;Ledaburgh, Arkansas&quot;,
+            &quot;description&quot;: &quot;Quisquam sunt ea qui possimus perspiciatis doloremque qui. Quam hic est molestiae voluptas ut amet. Animi est non debitis non id magni. Incidunt veritatis et quo quam commodi. Qui illo ab aut praesentium quam.\n\nSequi modi et odit in quidem. Temporibus aut itaque voluptatibus cupiditate voluptas sapiente ut neque. Et harum sed est fuga voluptatum pariatur voluptatem. Soluta necessitatibus expedita sequi quo est voluptatem vitae. A totam et quo officiis exercitationem non.\n\nExpedita sed aperiam sit voluptatibus ipsa nihil accusantium nobis. Officiis labore et aperiam quaerat debitis. Hic perferendis nesciunt consequatur.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: &quot;http://lang.com/maiores-amet-et-at-est&quot;,
+            &quot;views&quot;: 7,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;(478) 529-5337&quot;,
+            &quot;contact_email&quot;: &quot;kennedi92@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Chasity Gislason&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 12,
+                &quot;engine&quot;: &quot;1.8L Turbo&quot;,
+                &quot;power&quot;: &quot;300 HP&quot;,
+                &quot;color&quot;: &quot;White&quot;,
+                &quot;doors&quot;: 5,
+                &quot;seats&quot;: 2,
+                &quot;body_type&quot;: &quot;Pickup&quot;,
+                &quot;drive_type&quot;: &quot;4wd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;title&quot;: &quot;Volkswagen Passat 1985&quot;,
+            &quot;price&quot;: &quot;43632.00&quot;,
+            &quot;year&quot;: 2020,
+            &quot;mileage&quot;: 198293,
+            &quot;fuel_type&quot;: &quot;hybrid&quot;,
+            &quot;transmission&quot;: &quot;manual&quot;,
+            &quot;location&quot;: &quot;West Sydnibury, South Carolina&quot;,
+            &quot;description&quot;: &quot;Quisquam et qui in aut. Labore asperiores in voluptatem accusantium nihil in.\n\nEst ducimus et doloribus enim. Quo modi praesentium neque unde hic molestiae. Illo aut nobis atque sed quo.\n\nVoluptatem vel assumenda perferendis est repellat ut maxime. Omnis corrupti et enim voluptatem molestiae omnis. Beatae nihil magni facere accusamus quam placeat et.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: &quot;http://www.weimann.com/repudiandae-voluptas-velit-maxime-enim-magnam-labore-ut&quot;,
+            &quot;views&quot;: 923,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;1-732-558-3965&quot;,
+            &quot;contact_email&quot;: &quot;heber.krajcik@example.org&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Chasity Gislason&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 13,
+                &quot;engine&quot;: &quot;2.0L Turbo&quot;,
+                &quot;power&quot;: &quot;180 HP&quot;,
+                &quot;color&quot;: &quot;Brown&quot;,
+                &quot;doors&quot;: 4,
+                &quot;seats&quot;: 8,
+                &quot;body_type&quot;: &quot;Convertible&quot;,
+                &quot;drive_type&quot;: &quot;awd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;title&quot;: &quot;Audi A4 1992&quot;,
+            &quot;price&quot;: &quot;9244.00&quot;,
+            &quot;year&quot;: 2018,
+            &quot;mileage&quot;: 69047,
+            &quot;fuel_type&quot;: &quot;hybrid&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;Roobton, Washington&quot;,
+            &quot;description&quot;: &quot;Reiciendis ducimus illum voluptatem. Et est quos consequatur ratione natus vitae voluptatem officia. Numquam consectetur delectus illo quas fugiat. Molestias vitae atque neque dolor dolorem sunt dolore.\n\nDolor corporis vel quibusdam neque iusto. Facere magnam ad odio asperiores non quis laborum. Accusantium et officia qui molestiae distinctio est aut.\n\nNumquam et ut voluptatem. Ut officiis dolorum consequatur. Voluptas unde error sequi et explicabo provident. Consequuntur qui voluptas ipsa ex nulla quo consequatur.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: true,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 447,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+18782566197&quot;,
+            &quot;contact_email&quot;: &quot;cornelius.dubuque@example.net&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Chasity Gislason&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 14,
+                &quot;engine&quot;: &quot;3.0L V6&quot;,
+                &quot;power&quot;: &quot;350 HP&quot;,
+                &quot;color&quot;: &quot;White&quot;,
+                &quot;doors&quot;: 3,
+                &quot;seats&quot;: 2,
+                &quot;body_type&quot;: &quot;Hatchback&quot;,
+                &quot;drive_type&quot;: &quot;fwd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;title&quot;: &quot;Toyota Camry 1970&quot;,
+            &quot;price&quot;: &quot;48026.00&quot;,
+            &quot;year&quot;: 2010,
+            &quot;mileage&quot;: 141215,
+            &quot;fuel_type&quot;: &quot;electric&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;Port Linwoodshire, Tennessee&quot;,
+            &quot;description&quot;: &quot;Praesentium qui mollitia qui architecto. Deserunt velit ex qui dicta sit numquam earum impedit. Aliquid porro non beatae tempora laboriosam est. Quia vel id voluptatum facilis praesentium repellat.\n\nRerum officia inventore excepturi et. Qui molestiae ad et voluptatum minus. Et qui illo ipsam qui. Labore officiis unde neque odio reiciendis.\n\nVeritatis animi nulla quia nam et consectetur. Sapiente aut animi praesentium ipsa quidem. Tenetur alias laudantium eum dolorum quia.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 890,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;(563) 877-7920&quot;,
+            &quot;contact_email&quot;: &quot;sporer.lorenzo@example.net&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Chasity Gislason&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 15,
+                &quot;engine&quot;: &quot;4.0L V8&quot;,
+                &quot;power&quot;: &quot;200 HP&quot;,
+                &quot;color&quot;: &quot;Silver&quot;,
+                &quot;doors&quot;: 3,
+                &quot;seats&quot;: 2,
+                &quot;body_type&quot;: &quot;Hatchback&quot;,
+                &quot;drive_type&quot;: &quot;fwd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 16,
+            &quot;title&quot;: &quot;Mazda 6 1997&quot;,
+            &quot;price&quot;: &quot;58345.00&quot;,
+            &quot;year&quot;: 2020,
+            &quot;mileage&quot;: 13063,
+            &quot;fuel_type&quot;: &quot;electric&quot;,
+            &quot;transmission&quot;: &quot;manual&quot;,
+            &quot;location&quot;: &quot;East Leonieton, New Jersey&quot;,
+            &quot;description&quot;: &quot;Illo non velit voluptatibus sunt repellendus rerum beatae quae. Iusto sit rerum ratione repellat modi numquam. Et nisi veniam voluptatum molestiae ducimus nihil tempora officia. Quia quo ut dolorem.\n\nIpsam et quam quo natus sapiente est. Velit ipsa vitae animi iste ea est. Quia molestiae eveniet et adipisci ut perferendis. Et necessitatibus cum neque iste nihil.\n\nEveniet ab necessitatibus et et illo. Quis officia facilis omnis. Autem quod id exercitationem autem eaque aut nobis quia.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 830,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;(979) 669-5472&quot;,
+            &quot;contact_email&quot;: &quot;susana.conroy@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Chasity Gislason&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 16,
+                &quot;engine&quot;: &quot;4.0L V8&quot;,
+                &quot;power&quot;: &quot;220 HP&quot;,
+                &quot;color&quot;: &quot;Red&quot;,
+                &quot;doors&quot;: 3,
+                &quot;seats&quot;: 2,
+                &quot;body_type&quot;: &quot;Convertible&quot;,
+                &quot;drive_type&quot;: &quot;4wd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 17,
+            &quot;title&quot;: &quot;Mercedes C-Class 1991&quot;,
+            &quot;price&quot;: &quot;46831.00&quot;,
+            &quot;year&quot;: 2011,
+            &quot;mileage&quot;: 26675,
+            &quot;fuel_type&quot;: &quot;hybrid&quot;,
+            &quot;transmission&quot;: &quot;manual&quot;,
+            &quot;location&quot;: &quot;West Adele, West Virginia&quot;,
+            &quot;description&quot;: &quot;Laborum quas voluptates eos. Qui delectus libero in explicabo dolor.\n\nInventore ipsum facilis qui rerum. Incidunt sed sed sit id sunt et. Aperiam autem amet id et est molestiae possimus expedita. Praesentium est ut esse delectus recusandae commodi quae.\n\nAmet aliquid aspernatur molestias maiores quasi. Autem a soluta autem fuga suscipit dolor non. Veritatis temporibus cumque non porro. Accusamus et qui aut.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: &quot;http://fay.org/et-recusandae-impedit-suscipit-rerum-tempore&quot;,
+            &quot;views&quot;: 991,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1-912-280-4673&quot;,
+            &quot;contact_email&quot;: &quot;madisyn.schulist@example.net&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;Miss Laury Fisher Jr.&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 17,
+                &quot;engine&quot;: &quot;4.0L V8&quot;,
+                &quot;power&quot;: &quot;220 HP&quot;,
+                &quot;color&quot;: &quot;Silver&quot;,
+                &quot;doors&quot;: 4,
+                &quot;seats&quot;: 7,
+                &quot;body_type&quot;: &quot;Convertible&quot;,
+                &quot;drive_type&quot;: &quot;awd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 18,
+            &quot;title&quot;: &quot;Volkswagen Passat 1979&quot;,
+            &quot;price&quot;: &quot;75865.00&quot;,
+            &quot;year&quot;: 2010,
+            &quot;mileage&quot;: 112708,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;cvt&quot;,
+            &quot;location&quot;: &quot;West Sofia, Kansas&quot;,
+            &quot;description&quot;: &quot;Fugit facilis natus in aut dolor distinctio voluptatem. Corporis omnis amet sed. Maxime omnis nihil et praesentium dignissimos sequi.\n\nNumquam quis dolorem dolorem sed quia magni eaque cumque. Soluta excepturi aut quo aut sequi ullam. Voluptatem dolore perspiciatis dolores et fuga corporis est. Deleniti laboriosam maxime nihil mollitia nostrum similique.\n\nQui id sint occaecati velit. Beatae vero magni veritatis maxime omnis. Corporis et excepturi dolores ipsum quia quis quo.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 869,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;505.986.2770&quot;,
+            &quot;contact_email&quot;: &quot;funk.frances@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 7,
+                &quot;name&quot;: &quot;Prof. Jalon McKenzie III&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 18,
+                &quot;engine&quot;: &quot;3.0L V6&quot;,
+                &quot;power&quot;: &quot;200 HP&quot;,
+                &quot;color&quot;: &quot;White&quot;,
+                &quot;doors&quot;: 4,
+                &quot;seats&quot;: 5,
+                &quot;body_type&quot;: &quot;Coupe&quot;,
+                &quot;drive_type&quot;: &quot;rwd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 19,
+            &quot;title&quot;: &quot;BMW 3 Series 1986&quot;,
+            &quot;price&quot;: &quot;52564.00&quot;,
+            &quot;year&quot;: 2011,
+            &quot;mileage&quot;: 97628,
+            &quot;fuel_type&quot;: &quot;diesel&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;South Krystal, Mississippi&quot;,
+            &quot;description&quot;: &quot;Praesentium id ipsum fuga quia. Similique suscipit nulla exercitationem sunt sed. Et minima sit aut architecto ea. Aut saepe sunt praesentium laudantium molestias sit qui dolor.\n\nPlaceat pariatur optio et provident autem quo ad qui. Atque non dolores laboriosam quia. Officia a eligendi suscipit enim commodi minus.\n\nUt vel voluptatibus qui et asperiores ut perferendis. Hic aut autem rerum autem laudantium. Et enim accusamus molestiae nisi voluptas omnis minus.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 220,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;(954) 333-0069&quot;,
+            &quot;contact_email&quot;: &quot;iankunding@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 7,
+                &quot;name&quot;: &quot;Prof. Jalon McKenzie III&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 19,
+                &quot;engine&quot;: &quot;4.0L V8&quot;,
+                &quot;power&quot;: &quot;200 HP&quot;,
+                &quot;color&quot;: &quot;White&quot;,
+                &quot;doors&quot;: 3,
+                &quot;seats&quot;: 7,
+                &quot;body_type&quot;: &quot;Convertible&quot;,
+                &quot;drive_type&quot;: &quot;awd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 20,
+            &quot;title&quot;: &quot;Honda Accord 1987&quot;,
+            &quot;price&quot;: &quot;71587.00&quot;,
+            &quot;year&quot;: 2011,
+            &quot;mileage&quot;: 68170,
+            &quot;fuel_type&quot;: &quot;gasoline&quot;,
+            &quot;transmission&quot;: &quot;automatic&quot;,
+            &quot;location&quot;: &quot;Wolffburgh, Minnesota&quot;,
+            &quot;description&quot;: &quot;Iste sit voluptatem dicta dolores dignissimos ut sunt. Totam corrupti et dicta architecto harum pariatur. Voluptatum tempora dicta harum voluptas. Voluptate eos delectus itaque facilis nihil expedita nihil.\n\nOdit hic omnis minus sed pariatur est vitae. Sit mollitia aut minus et. Sapiente tempore repellat reprehenderit id. Soluta ad et fuga ratione maiores.\n\nEveniet architecto voluptate adipisci iure qui. Odio laboriosam et porro et libero. Ea eveniet nobis facilis aut in.&quot;,
+            &quot;featured&quot;: false,
+            &quot;has_360_view&quot;: true,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 569,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1-361-814-2680&quot;,
+            &quot;contact_email&quot;: &quot;leila.kuhn@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 7,
+                &quot;name&quot;: &quot;Prof. Jalon McKenzie III&quot;,
+                &quot;email&quot;: null,
+                &quot;phone&quot;: null,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: null,
+                &quot;updated_at&quot;: null
+            },
+            &quot;images&quot;: [],
+            &quot;specifications&quot;: {
+                &quot;id&quot;: 20,
+                &quot;engine&quot;: &quot;1.6L I4&quot;,
+                &quot;power&quot;: &quot;350 HP&quot;,
+                &quot;color&quot;: &quot;Gray&quot;,
+                &quot;doors&quot;: 4,
+                &quot;seats&quot;: 5,
+                &quot;body_type&quot;: &quot;Coupe&quot;,
+                &quot;drive_type&quot;: &quot;fwd&quot;
+            },
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        }
+    ],
     &quot;pagination&quot;: {
         &quot;current_page&quot;: 1,
-        &quot;last_page&quot;: 1,
+        &quot;last_page&quot;: 3,
         &quot;per_page&quot;: 20,
-        &quot;total&quot;: 0,
-        &quot;from&quot;: null,
-        &quot;to&quot;: null
+        &quot;total&quot;: 45,
+        &quot;from&quot;: 1,
+        &quot;to&quot;: 20
     }
 }</code>
  </pre>
@@ -668,11 +1561,487 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 vary: Origin
-set-cookie: XSRF-TOKEN=eyJpdiI6ImdJcm4rTGJkUlo2SGZqb3pHVXFJdXc9PSIsInZhbHVlIjoiQ1ZqN3RWdUVybHBGRFdRWHRVRFg5UzNaSHZrU1R2ZDlCSmlSbUxQYXBUZjRJRWh2M2JGMTBzaGJta3IyUUl6d0hkUWNyTlBLNGF6QjNTZjhiZGtLM1poK1NsM21RUyt2NmxkeTJLQlZoNDVUOEIzR0gwek5Cb0Z6UUxOTXRWUU0iLCJtYWMiOiIwYzkzMDdiZTkxMmJmMGVhMjQ1NThhNTBlMzU5ZTAyYjhjMzA4MzZkZjRlZDNjYmNmNTQ0ZTg3YTA3ZDZhZTNkIiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; samesite=lax; laravel_session=eyJpdiI6IktBV1hHemRUNE1Hc3R1Z201RjBWK1E9PSIsInZhbHVlIjoiZCtFY1R4UEIvZXplaVNreVNwR0h3MFlxblQxbmpjMGFiYmVkYUxmdnpqRTNOaUgvS1Mwai9OSVRuV0pnWWkyTE5Jb0piV1FYNnBtODJGdzJSNmdmZk83V204N3dPWTA5LzU5cjllaktBNW1HT0JyUnZQb1AybWRTc2tqMG9pNzgiLCJtYWMiOiI3OGRhMGRkZjJmMWQzMTcwMWM2NDNlNWI0OTQzOGU1MjU2MjRiYjFlMTg2OWZjYjJiZGM2Zjg3OGUyMTIwZTlhIiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: []
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 46,
+            &quot;title&quot;: &quot;Mercedes C-Class 2003&quot;,
+            &quot;price&quot;: &quot;55442.00&quot;,
+            &quot;year&quot;: 2022,
+            &quot;mileage&quot;: 159837,
+            &quot;fuel_type&quot;: &quot;hybrid&quot;,
+            &quot;transmission&quot;: &quot;automatic&quot;,
+            &quot;location&quot;: &quot;Rosaview, Tennessee&quot;,
+            &quot;description&quot;: &quot;Odio laborum vitae illo sed nostrum sunt. In minima temporibus qui est dolorem eos corporis. Impedit non quam sequi debitis vero sit.\n\nEst et quia dolor dolores est similique voluptas quia. Sed amet tempora error impedit iure unde non. Natus quae ipsa inventore accusantium ipsum quisquam qui. Quo sunt suscipit laudantium maiores dolor.\n\nDebitis voluptas est voluptatibus quia quibusdam ut aut. Dolorum illum neque dolorem qui similique et. Molestias asperiores harum consequatur reprehenderit est. Consequatur minus tempora aut totam. Unde vitae provident nobis et ab modi.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 19,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;(615) 722-7808&quot;,
+            &quot;contact_email&quot;: &quot;morris88@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:25.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:25.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Test User&quot;,
+                &quot;email&quot;: &quot;test@example.com&quot;,
+                &quot;phone&quot;: &quot;929.965.7005&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Mercedes C-Class 1973&quot;,
+            &quot;price&quot;: &quot;16544.00&quot;,
+            &quot;year&quot;: 2020,
+            &quot;mileage&quot;: 87117,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;manual&quot;,
+            &quot;location&quot;: &quot;West Jovanhaven, Arkansas&quot;,
+            &quot;description&quot;: &quot;Ut laborum amet sit qui et. Nam sapiente pariatur voluptates et quos. Ut ut id voluptatibus quaerat.\n\nSaepe dicta quo eveniet sapiente consectetur. Et non velit quae veniam dolor aliquam. Est earum distinctio adipisci autem consequatur omnis. Velit dolores sequi dolorem nulla dolores iusto. Qui voluptatem maiores dolorum dolorem sit.\n\nNisi odit nihil quia hic et. Quibusdam dolor magnam placeat quae distinctio laudantium sunt. Enim ducimus corporis perspiciatis sed id recusandae sit provident. Architecto nihil ipsa explicabo quis.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 62,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1-219-858-2231&quot;,
+            &quot;contact_email&quot;: &quot;pasquale21@example.org&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Test User&quot;,
+                &quot;email&quot;: &quot;test@example.com&quot;,
+                &quot;phone&quot;: &quot;929.965.7005&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;title&quot;: &quot;Volkswagen Passat 1972&quot;,
+            &quot;price&quot;: &quot;64390.00&quot;,
+            &quot;year&quot;: 2020,
+            &quot;mileage&quot;: 168987,
+            &quot;fuel_type&quot;: &quot;diesel&quot;,
+            &quot;transmission&quot;: &quot;automatic&quot;,
+            &quot;location&quot;: &quot;Rogahnbury, Ohio&quot;,
+            &quot;description&quot;: &quot;Id qui qui dignissimos repellendus eum ducimus molestiae. Nemo quidem saepe voluptas laborum velit placeat.\n\nSaepe vel aut expedita commodi eos ut maiores. Animi dolorem rem et ea voluptatem non. Molestias reprehenderit incidunt facilis fuga dolore debitis. Qui sapiente sapiente vel at.\n\nConsequatur reprehenderit in ut temporibus quos recusandae molestias voluptas. Aperiam debitis et illum quia fuga beatae. Et dignissimos unde est placeat voluptas sapiente quas mollitia.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 658,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;(763) 360-4252&quot;,
+            &quot;contact_email&quot;: &quot;pagac.mckenna@example.net&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Blanca Ryan Jr.&quot;,
+                &quot;email&quot;: &quot;ichristiansen@example.net&quot;,
+                &quot;phone&quot;: &quot;938-988-2043&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:20.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;title&quot;: &quot;Toyota Camry 1970&quot;,
+            &quot;price&quot;: &quot;48026.00&quot;,
+            &quot;year&quot;: 2010,
+            &quot;mileage&quot;: 141215,
+            &quot;fuel_type&quot;: &quot;electric&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;Port Linwoodshire, Tennessee&quot;,
+            &quot;description&quot;: &quot;Praesentium qui mollitia qui architecto. Deserunt velit ex qui dicta sit numquam earum impedit. Aliquid porro non beatae tempora laboriosam est. Quia vel id voluptatum facilis praesentium repellat.\n\nRerum officia inventore excepturi et. Qui molestiae ad et voluptatum minus. Et qui illo ipsam qui. Labore officiis unde neque odio reiciendis.\n\nVeritatis animi nulla quia nam et consectetur. Sapiente aut animi praesentium ipsa quidem. Tenetur alias laudantium eum dolorum quia.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 890,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;(563) 877-7920&quot;,
+            &quot;contact_email&quot;: &quot;sporer.lorenzo@example.net&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;Chasity Gislason&quot;,
+                &quot;email&quot;: &quot;haylee27@example.com&quot;,
+                &quot;phone&quot;: &quot;240-536-1507&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:20.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 23,
+            &quot;title&quot;: &quot;Toyota Camry 1997&quot;,
+            &quot;price&quot;: &quot;42443.00&quot;,
+            &quot;year&quot;: 2021,
+            &quot;mileage&quot;: 148045,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;manual&quot;,
+            &quot;location&quot;: &quot;West Donnieburgh, Texas&quot;,
+            &quot;description&quot;: &quot;Impedit ea et architecto fugiat cumque in nostrum. Commodi repellendus sint molestiae quis enim harum qui. Sit et reprehenderit aut magni perferendis. Quod sed quisquam at unde ut doloremque. Praesentium eligendi dolorem soluta eligendi et ex.\n\nNisi consequatur in excepturi rerum nam. Quaerat aut alias exercitationem fugit sunt ut voluptatem. Incidunt alias voluptatem dolores quis. Necessitatibus sit natus sed autem deserunt delectus.\n\nAb aut autem quisquam et nulla. Autem officiis asperiores quis distinctio omnis earum eum. Molestiae nam id doloremque placeat. Ut natus rerum amet aspernatur voluptate autem.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: true,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 119,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;1-501-692-1968&quot;,
+            &quot;contact_email&quot;: &quot;ndeckow@example.org&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 8,
+                &quot;name&quot;: &quot;Mrs. Jacky Stoltenberg III&quot;,
+                &quot;email&quot;: &quot;kblick@example.com&quot;,
+                &quot;phone&quot;: &quot;(848) 881-0382&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:22.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 25,
+            &quot;title&quot;: &quot;Nissan Altima 1993&quot;,
+            &quot;price&quot;: &quot;20702.00&quot;,
+            &quot;year&quot;: 2023,
+            &quot;mileage&quot;: 197894,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;Schowalterburgh, Indiana&quot;,
+            &quot;description&quot;: &quot;Voluptate aut doloribus ut ut aut. Voluptatem omnis rerum illo neque molestias natus enim. Tempore deleniti vitae et est sed ab qui.\n\nDolor repudiandae quisquam et assumenda voluptas. Tempora officia magnam et fugit. Quos facere perferendis sapiente. Asperiores ab distinctio modi labore quod.\n\nHic esse exercitationem quibusdam iste tempore. Libero sequi qui dolorem mollitia libero quo omnis neque. Earum autem earum voluptas aut voluptatem vel. Et aut voluptatibus quas laboriosam placeat eos autem.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 781,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1.539.838.5202&quot;,
+            &quot;contact_email&quot;: &quot;lavada.hessel@example.org&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 9,
+                &quot;name&quot;: &quot;Jeromy Schuster&quot;,
+                &quot;email&quot;: &quot;brenda.mccullough@example.org&quot;,
+                &quot;phone&quot;: &quot;+17659470506&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:22.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 27,
+            &quot;title&quot;: &quot;Mazda 6 2014&quot;,
+            &quot;price&quot;: &quot;65881.00&quot;,
+            &quot;year&quot;: 2012,
+            &quot;mileage&quot;: 49616,
+            &quot;fuel_type&quot;: &quot;diesel&quot;,
+            &quot;transmission&quot;: &quot;cvt&quot;,
+            &quot;location&quot;: &quot;Port Deangeloside, Tennessee&quot;,
+            &quot;description&quot;: &quot;Cumque nesciunt impedit molestiae enim atque similique vel aut. Praesentium omnis at autem ratione est minima molestiae. Eum ut ea veritatis qui laboriosam velit. Quaerat dolor eius aut dolores officia et.\n\nSed nesciunt sint nihil sequi. Perferendis reprehenderit tempore ullam sequi repellat placeat. Distinctio minima cupiditate quisquam commodi sint deserunt.\n\nVoluptatum mollitia in non quidem repellat voluptatem nam ratione. Quia aperiam labore dolorum officia et.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: true,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 913,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+19807750086&quot;,
+            &quot;contact_email&quot;: &quot;dalton83@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 9,
+                &quot;name&quot;: &quot;Jeromy Schuster&quot;,
+                &quot;email&quot;: &quot;brenda.mccullough@example.org&quot;,
+                &quot;phone&quot;: &quot;+17659470506&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:22.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 29,
+            &quot;title&quot;: &quot;Mercedes C-Class 2007&quot;,
+            &quot;price&quot;: &quot;7586.00&quot;,
+            &quot;year&quot;: 2014,
+            &quot;mileage&quot;: 93964,
+            &quot;fuel_type&quot;: &quot;diesel&quot;,
+            &quot;transmission&quot;: &quot;cvt&quot;,
+            &quot;location&quot;: &quot;East Guadalupe, Illinois&quot;,
+            &quot;description&quot;: &quot;Corrupti pariatur laboriosam est aliquid corporis est consequuntur odio. Ipsam porro quidem laborum ex. Nam molestiae dicta molestiae. Delectus porro quia est rem cum vitae.\n\nAut sed vel voluptates reiciendis delectus sint itaque. Natus quam ut cum ad molestiae et. Doloribus error voluptatum excepturi necessitatibus. Est voluptatibus aperiam maiores expedita sit impedit.\n\nNecessitatibus sit eaque quia assumenda praesentium. Laboriosam sunt doloremque sit error neque aut omnis. Iste veniam quis enim et porro. Et est officia voluptatem quibusdam exercitationem. Ullam voluptas sed rerum itaque voluptas quasi aliquid et.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 884,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1-404-415-0082&quot;,
+            &quot;contact_email&quot;: &quot;nitzsche.herman@example.net&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 9,
+                &quot;name&quot;: &quot;Jeromy Schuster&quot;,
+                &quot;email&quot;: &quot;brenda.mccullough@example.org&quot;,
+                &quot;phone&quot;: &quot;+17659470506&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:22.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 30,
+            &quot;title&quot;: &quot;Volkswagen Passat 2005&quot;,
+            &quot;price&quot;: &quot;14248.00&quot;,
+            &quot;year&quot;: 2017,
+            &quot;mileage&quot;: 111334,
+            &quot;fuel_type&quot;: &quot;electric&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;Lake Emeliafurt, District of Columbia&quot;,
+            &quot;description&quot;: &quot;Unde et et id possimus in ducimus. Placeat voluptatem repudiandae quibusdam commodi est. Eligendi animi voluptatem nam deleniti. A vitae explicabo a ut placeat suscipit. Quas libero aliquid eius.\n\nTenetur in accusantium voluptatum repudiandae nam aliquid aut. Eveniet optio ea asperiores eos. Id illum ullam deserunt voluptas dolores officia. Ipsam eos sequi ipsam totam tempora excepturi animi.\n\nDebitis tenetur nam eos reiciendis. Omnis dolorem deserunt sed velit cum tempora nostrum. Consequuntur sit doloribus praesentium laborum enim quasi voluptas.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 0,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;346-258-3892&quot;,
+            &quot;contact_email&quot;: &quot;pacocha.laurie@example.net&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 10,
+                &quot;name&quot;: &quot;Mrs. Kelsie Koss&quot;,
+                &quot;email&quot;: &quot;metz.oceane@example.com&quot;,
+                &quot;phone&quot;: &quot;(667) 969-5235&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:23.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 34,
+            &quot;title&quot;: &quot;BMW 3 Series 1977&quot;,
+            &quot;price&quot;: &quot;26418.00&quot;,
+            &quot;year&quot;: 2012,
+            &quot;mileage&quot;: 190934,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;semi-automatic&quot;,
+            &quot;location&quot;: &quot;Cassandremouth, Vermont&quot;,
+            &quot;description&quot;: &quot;Assumenda dolorem blanditiis sint molestiae soluta et. Autem aut veniam ipsa itaque repellendus repudiandae sunt voluptatibus. Iure ut facilis non quis explicabo.\n\nCum vero sequi maiores corrupti. Dolor consequuntur dolor repellat et dolores explicabo. Aperiam et earum in voluptas impedit. Quaerat voluptate corporis itaque totam distinctio.\n\nSint voluptatem accusantium et enim. Voluptatum eos sunt voluptatibus ea dolores deleniti delectus.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 625,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1.725.859.8776&quot;,
+            &quot;contact_email&quot;: &quot;wilma54@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 11,
+                &quot;name&quot;: &quot;Prudence Purdy&quot;,
+                &quot;email&quot;: &quot;eharber@example.com&quot;,
+                &quot;phone&quot;: &quot;(580) 424-4916&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:23.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 42,
+            &quot;title&quot;: &quot;Honda Accord 1975&quot;,
+            &quot;price&quot;: &quot;57103.00&quot;,
+            &quot;year&quot;: 2012,
+            &quot;mileage&quot;: 46167,
+            &quot;fuel_type&quot;: &quot;electric&quot;,
+            &quot;transmission&quot;: &quot;automatic&quot;,
+            &quot;location&quot;: &quot;Linneaville, Arizona&quot;,
+            &quot;description&quot;: &quot;Quia sint dolore cupiditate aut rerum. Impedit nihil nihil sed ipsum ipsam veritatis accusantium. Possimus aut rerum qui et qui consequatur sit.\n\nNulla eum laborum voluptas. Perspiciatis id enim autem deserunt. Ipsum aut similique odio dicta dolorem.\n\nConsequuntur atque perferendis rem alias dignissimos. Nobis cum modi eius autem corporis quam exercitationem. Sunt omnis hic quidem dolores. Autem accusantium fugit voluptas.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 794,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;458-871-6793&quot;,
+            &quot;contact_email&quot;: &quot;dayton.bruen@example.org&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Test User&quot;,
+                &quot;email&quot;: &quot;test@example.com&quot;,
+                &quot;phone&quot;: &quot;929.965.7005&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 43,
+            &quot;title&quot;: &quot;Mercedes C-Class 2021&quot;,
+            &quot;price&quot;: &quot;45608.00&quot;,
+            &quot;year&quot;: 2017,
+            &quot;mileage&quot;: 103139,
+            &quot;fuel_type&quot;: &quot;lpg&quot;,
+            &quot;transmission&quot;: &quot;manual&quot;,
+            &quot;location&quot;: &quot;Abigailfurt, Washington&quot;,
+            &quot;description&quot;: &quot;Suscipit nesciunt reiciendis magnam illum occaecati impedit recusandae. Quia explicabo consequuntur dolor velit aliquam ducimus. Aliquid ea dolor sint sed deleniti.\n\nCorrupti eligendi aliquid voluptas mollitia cumque quis deserunt. Illo omnis recusandae dolor exercitationem pariatur maiores et quia. Voluptatibus quo quia autem id.\n\nSed ut totam tenetur ipsa dolores aut consequuntur. Voluptates quos libero tempora quisquam mollitia sint.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: &quot;http://pollich.com/odio-ex-alias-aut-earum&quot;,
+            &quot;views&quot;: 65,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1.360.723.2387&quot;,
+            &quot;contact_email&quot;: &quot;cora70@example.net&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Test User&quot;,
+                &quot;email&quot;: &quot;test@example.com&quot;,
+                &quot;phone&quot;: &quot;929.965.7005&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 44,
+            &quot;title&quot;: &quot;Mazda 6 1980&quot;,
+            &quot;price&quot;: &quot;67426.00&quot;,
+            &quot;year&quot;: 2012,
+            &quot;mileage&quot;: 70467,
+            &quot;fuel_type&quot;: &quot;electric&quot;,
+            &quot;transmission&quot;: &quot;automatic&quot;,
+            &quot;location&quot;: &quot;Olsonborough, New Hampshire&quot;,
+            &quot;description&quot;: &quot;Quis aperiam cupiditate neque hic blanditiis eum. Asperiores earum id quia ea.\n\nMollitia temporibus atque quod mollitia hic ea. Laborum dolorem tempora illum ab et. Doloremque rerum in aperiam error distinctio qui possimus. Sed doloribus blanditiis aspernatur excepturi quis.\n\nNatus atque qui facilis quam. Architecto voluptas architecto blanditiis omnis repellendus. Sit illo sed occaecati sint quidem.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 149,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1-812-964-6279&quot;,
+            &quot;contact_email&quot;: &quot;sconsidine@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Test User&quot;,
+                &quot;email&quot;: &quot;test@example.com&quot;,
+                &quot;phone&quot;: &quot;929.965.7005&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        },
+        {
+            &quot;id&quot;: 45,
+            &quot;title&quot;: &quot;Volkswagen Passat 2012&quot;,
+            &quot;price&quot;: &quot;9681.00&quot;,
+            &quot;year&quot;: 2022,
+            &quot;mileage&quot;: 8901,
+            &quot;fuel_type&quot;: &quot;diesel&quot;,
+            &quot;transmission&quot;: &quot;automatic&quot;,
+            &quot;location&quot;: &quot;North Rico, Kentucky&quot;,
+            &quot;description&quot;: &quot;Aut ea corrupti laboriosam. Ducimus est vel labore dolorem et culpa neque aliquid. Qui omnis aut eum reprehenderit. Optio odio quisquam reiciendis ducimus.\n\nVoluptatum molestiae eum porro voluptates ad tempora. Culpa suscipit quaerat odio neque nam perferendis earum. Assumenda quia sit qui aut ut ut quia. Sed delectus animi incidunt sit.\n\nImpedit amet et rerum necessitatibus. Doloremque maxime optio et quisquam quo tenetur. Deserunt deleniti ullam illum atque facere ut. Molestias unde sapiente sit similique ipsum consectetur ab molestiae.&quot;,
+            &quot;featured&quot;: true,
+            &quot;has_360_view&quot;: false,
+            &quot;video_url&quot;: null,
+            &quot;views&quot;: 486,
+            &quot;is_active&quot;: true,
+            &quot;contact_phone&quot;: &quot;+1-216-455-6038&quot;,
+            &quot;contact_email&quot;: &quot;nichole26@example.com&quot;,
+            &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+            &quot;seller&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Test User&quot;,
+                &quot;email&quot;: &quot;test@example.com&quot;,
+                &quot;phone&quot;: &quot;929.965.7005&quot;,
+                &quot;avatar&quot;: null,
+                &quot;email_verified_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-02T09:43:18.000000Z&quot;
+            },
+            &quot;images&quot;: [],
+            &quot;favorites_count&quot;: 0,
+            &quot;is_favorited&quot;: false,
+            &quot;primary_image&quot;: null
+        }
+    ]
 }</code>
  </pre>
     </span>
@@ -760,14 +2129,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:8000/api/cars/16" \
+    --get "http://127.0.0.1:8000/api/cars/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/cars/16"
+    "http://127.0.0.1:8000/api/cars/1"
 );
 
 const headers = {
@@ -784,7 +2153,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-cars--car_id-">
             <blockquote>
-            <p>Example response (404):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -793,11 +2162,53 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 vary: Origin
-set-cookie: XSRF-TOKEN=eyJpdiI6Ilg5UnhvcHNFVWlpU1JUOHlxSDFQZEE9PSIsInZhbHVlIjoiKysrOWRTdUxMTXErK2IxUkNYckZsRmZsQ0FWbXk3SER2V0ZGUHlxQm94ejd1RlgvdjNFUUxnN3ZaZ0h1bWJnYmIwbWprRktScWVFSmFzdklJa1djSXhFa2FFdDFHY0FCb1ozVWFkaDdpbnBBRUNsRnRrT3FDTWlzZVUxY0ZFcjciLCJtYWMiOiI1NThjYzdiNmUyMjhiNDJiNTAzMzNiMTJkYjM5MTg5ZWNlMWM5ZDc1NTkxNTY1ZDgxNjYwYjExNTUyZTNhZjU5IiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; samesite=lax; laravel_session=eyJpdiI6InorV01YSXVZazhmTUF3VXhrS3kySkE9PSIsInZhbHVlIjoidHB1SE8wZWdTZXgzYnJzKysvVkkzaGh3OGdQdndaaGxQbTRXOXdLYUxIVWRLUmVDMlhsbDlmZ1o0Q3ZZdFhIZUNkTzU0SEhOSlFWN1I3cGQ3blJQUzBzZm5CeFpXczEzRUNhais2ajZxYUhTYmg2TGZaYzYzY1RyS3NwQVlQMEciLCJtYWMiOiJiOWY4ODg4ZTY0Zjk0YTkzM2U4ZWM0N2I3YmI4NWM5NjY0OTU4NzM0ZmZkMjBjOTEzNWE0MTgxMTg3MjI5NjI2IiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;No query results for model [App\\Models\\Car] 16&quot;
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;Hyundai Elantra 1981&quot;,
+        &quot;price&quot;: &quot;23147.00&quot;,
+        &quot;year&quot;: 2022,
+        &quot;mileage&quot;: 91077,
+        &quot;fuel_type&quot;: &quot;hybrid&quot;,
+        &quot;transmission&quot;: &quot;automatic&quot;,
+        &quot;location&quot;: &quot;North Billy, Connecticut&quot;,
+        &quot;description&quot;: &quot;Fuga vitae quia voluptas eaque nesciunt. Officia voluptatum nisi nulla tempora eum nam vel ut. Qui asperiores et ut occaecati nobis id.\n\nEos aut molestias quod in animi. Maiores magni nostrum ratione enim. Molestiae perspiciatis dolores ex error impedit asperiores. Dolore est tempora quia magni.\n\nMinima beatae quod libero sed porro ratione maiores ullam. Qui ut nihil quis omnis non earum nihil. Consequuntur ratione id sed ab commodi dolore.&quot;,
+        &quot;featured&quot;: false,
+        &quot;has_360_view&quot;: false,
+        &quot;video_url&quot;: null,
+        &quot;views&quot;: 708,
+        &quot;is_active&quot;: true,
+        &quot;contact_phone&quot;: &quot;+1.618.684.8194&quot;,
+        &quot;contact_email&quot;: &quot;watsica.michale@example.net&quot;,
+        &quot;created_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-07-02T09:43:24.000000Z&quot;,
+        &quot;seller&quot;: {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Test User&quot;,
+            &quot;email&quot;: null,
+            &quot;phone&quot;: &quot;929.965.7005&quot;,
+            &quot;avatar&quot;: null,
+            &quot;email_verified_at&quot;: null,
+            &quot;created_at&quot;: null,
+            &quot;updated_at&quot;: null
+        },
+        &quot;images&quot;: [],
+        &quot;specifications&quot;: {
+            &quot;id&quot;: 1,
+            &quot;engine&quot;: &quot;2.0L Turbo&quot;,
+            &quot;power&quot;: &quot;220 HP&quot;,
+            &quot;color&quot;: &quot;Silver&quot;,
+            &quot;doors&quot;: 5,
+            &quot;seats&quot;: 4,
+            &quot;body_type&quot;: &quot;Sedan&quot;,
+            &quot;drive_type&quot;: &quot;rwd&quot;
+        },
+        &quot;favorites_count&quot;: 0,
+        &quot;is_favorited&quot;: false,
+        &quot;primary_image&quot;: null
+    }
 }</code>
  </pre>
     </span>
@@ -877,10 +2288,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="car_id"                data-endpoint="GETapi-cars--car_id-"
-               value="16"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the car. Example: <code>16</code></p>
+<p>The ID of the car. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -906,10 +2317,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"max_price\": 84,
     \"min_year\": 341,
     \"max_year\": 1403,
-    \"fuel_type\": \"diesel\",
-    \"transmission\": \"semi-automatic\",
+    \"fuel_type\": \"hybrid\",
+    \"transmission\": \"automatic\",
     \"location\": \"i\",
-    \"sort_by\": \"mileage_asc\",
+    \"sort_by\": \"created_at_desc\",
     \"per_page\": 8,
     \"page\": 16
 }"
@@ -932,10 +2343,10 @@ let body = {
     "max_price": 84,
     "min_year": 341,
     "max_year": 1403,
-    "fuel_type": "diesel",
-    "transmission": "semi-automatic",
+    "fuel_type": "hybrid",
+    "transmission": "automatic",
     "location": "i",
-    "sort_by": "mileage_asc",
+    "sort_by": "created_at_desc",
     "per_page": 8,
     "page": 16
 };
@@ -1081,10 +2492,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="fuel_type"                data-endpoint="POSTapi-cars-search"
-               value="diesel"
+               value="hybrid"
                data-component="body">
     <br>
-<p>Example: <code>diesel</code></p>
+<p>Example: <code>hybrid</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>gasoline</code></li> <li><code>diesel</code></li> <li><code>electric</code></li> <li><code>hybrid</code></li> <li><code>lpg</code></li> <li><code>all</code></li></ul>
         </div>
@@ -1094,10 +2505,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="transmission"                data-endpoint="POSTapi-cars-search"
-               value="semi-automatic"
+               value="automatic"
                data-component="body">
     <br>
-<p>Example: <code>semi-automatic</code></p>
+<p>Example: <code>automatic</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>manual</code></li> <li><code>automatic</code></li> <li><code>cvt</code></li> <li><code>semi-automatic</code></li> <li><code>all</code></li></ul>
         </div>
@@ -1118,10 +2529,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="sort_by"                data-endpoint="POSTapi-cars-search"
-               value="mileage_asc"
+               value="created_at_desc"
                data-component="body">
     <br>
-<p>Example: <code>mileage_asc</code></p>
+<p>Example: <code>created_at_desc</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>price_asc</code></li> <li><code>price_desc</code></li> <li><code>year_asc</code></li> <li><code>year_desc</code></li> <li><code>mileage_asc</code></li> <li><code>mileage_desc</code></li> <li><code>created_at_desc</code></li> <li><code>created_at_asc</code></li></ul>
         </div>
@@ -1186,7 +2597,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-auth-user">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1195,11 +2606,10 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 vary: Origin
-set-cookie: XSRF-TOKEN=eyJpdiI6IjV2MVBUeDk0eE82cGk4d2M3ZXFIcVE9PSIsInZhbHVlIjoibFZHNlB5ZWpjK09URkZIWXMwUmp0TXh3OTB5R1g3Zy81bDNqQWZ6ckdOM0RHeCtoZCtoL0FCa0E5YWNYcnFYUDFuYzVBUlZFN0M5dWFMVlZ1dFJLK0NqYnFPelNCQlhidWFobmZQZ281Y2l6VGRQQ05QMGFINnpGWEdNN0JGVlUiLCJtYWMiOiJjY2M2ZTZmZjdjNGI4MTMxMzk2ZDI2NmQzNTQ1YTk4NzQ4MjJiNDI5ZWU5MDU2ZmRkZDhiMzQxNTNhYjQwMGM1IiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; samesite=lax; laravel_session=eyJpdiI6Inh4cWIzdkc1S3hsc1locjR4VVhIWEE9PSIsInZhbHVlIjoiRUo5ZzR5WVR0NlJHV1BuYWJhcWRaa1IxRWhPMmswa2gwcFhIdW85Vm55RUN2dWJ0cTUvejIvSzl3bm5QVzEwMWN2NUxmcHF5R3V6TDNYMHpTY3VDTEVPWUh6djg4UUg0a0VQSzBPYkY5ODhBV040MVBXdCt2YXBoSER4UytyOXAiLCJtYWMiOiI3YzIyODU2NjEyNzdkMTFhNzgxN2ViMDEyYzMxMzY4ODcyNTMxZGRkNDUzZmQwMzA3MDUzNjljMmJlNDFlZThhIiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>
@@ -1506,7 +2916,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://127.0.0.1:8000/api/auth/avatar" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "avatar=@/tmp/phpvri4rtfu8esffZUWyy3" </code></pre></div>
+    --form "avatar=@C:\Users\xifi3\AppData\Local\Temp\phpD98.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1611,7 +3021,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpvri4rtfu8esffZUWyy3</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\xifi3\AppData\Local\Temp\phpD98.tmp</code></p>
         </div>
         </form>
 
@@ -1652,7 +3062,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-auth-stats">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1661,11 +3071,10 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 vary: Origin
-set-cookie: XSRF-TOKEN=eyJpdiI6IjhDbXdXcWJiTlNCQStsWTdMY3FYUVE9PSIsInZhbHVlIjoiZ3h6NmtMbkVlS1IvdWRuTUJaZkRaMm9wSU8vREp2amxtY1RpZkNyUHUwOXJOazZxR2xMS2xoUzRCU3RxVXN1N3BlVy9ibXQyd0txL3R0T2oxMGU3RHBWaURoUnhER0NjRnVTZEJvYWVhUDVYWFZHRkUrNDlmTUNtUVhQYWlGYmYiLCJtYWMiOiJkZGFlNDE5NTgzYjFjOTMyN2UzMjU1ODNkYmUxZGQ4OTEyZTk3ZTljZWM3Nzc0YTRhYTk2Y2YyODVhMzg2OGM1IiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; samesite=lax; laravel_session=eyJpdiI6Ind2S0plLzNCcVRpTjFpRTJ3Z1lCL0E9PSIsInZhbHVlIjoiUkIzVzNBUWNwUTU1dFRlanIrM0J6ZGhaeFE4TEpPUXJEa1huaFVnVEVvUWk2T3VnWTRKTk00ck45SmQ2bjVwMzI4Kys2bWRIWkpaRk8xb29DZlZhSnNHdFBPSWpwOWJCUFlkdVlOYjNPV0VUeFUwL2p0eTdGbFZ0UnBBaC9iNmUiLCJtYWMiOiJkOGY4ZmYyYjcyZjdmMTBhZjU1YTI4MTJhNDdhMGU5NmFjNTk0ZjJiODBiYTFmOTFjMzY5YzBmYTY1ZTJmYjQ2IiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>
@@ -1760,7 +3169,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "price=12"\
     --form "year=23"\
     --form "mileage=25"\
-    --form "fuel_type=diesel"\
+    --form "fuel_type=lpg"\
     --form "transmission=automatic"\
     --form "location=t"\
     --form "description=Laboriosam praesentium quis adipisci molestias fugit deleniti distinctio."\
@@ -1774,7 +3183,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "video_url=http://www.okon.com/accusantium-harum-mollitia-modi-deserunt-aut-ab"\
     --form "contact_phone=ykcmyuwpwlvqwrsi"\
     --form "contact_email=pfritsch@example.com"\
-    --form "images[]=@/tmp/php628pivvbvlodfFIQjae" </code></pre></div>
+    --form "images[]=@C:\Users\xifi3\AppData\Local\Temp\php1192.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1792,7 +3201,7 @@ body.append('title', 'bngzmiyvdljnikhwaykcmyuwpwlvqwrsitcpscqldzs');
 body.append('price', '12');
 body.append('year', '23');
 body.append('mileage', '25');
-body.append('fuel_type', 'diesel');
+body.append('fuel_type', 'lpg');
 body.append('transmission', 'automatic');
 body.append('location', 't');
 body.append('description', 'Laboriosam praesentium quis adipisci molestias fugit deleniti distinctio.');
@@ -1938,10 +3347,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fuel_type"                data-endpoint="POSTapi-cars"
-               value="diesel"
+               value="lpg"
                data-component="body">
     <br>
-<p>Example: <code>diesel</code></p>
+<p>Example: <code>lpg</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>gasoline</code></li> <li><code>diesel</code></li> <li><code>electric</code></li> <li><code>hybrid</code></li> <li><code>lpg</code></li></ul>
         </div>
@@ -2131,7 +3540,7 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://127.0.0.1:8000/api/cars/16" \
+    "http://127.0.0.1:8000/api/cars/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -2153,7 +3562,7 @@ Must be one of:
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/cars/16"
+    "http://127.0.0.1:8000/api/cars/1"
 );
 
 const headers = {
@@ -2262,10 +3671,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="car_id"                data-endpoint="PUTapi-cars--car_id-"
-               value="16"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the car. Example: <code>16</code></p>
+<p>The ID of the car. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2429,14 +3838,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1:8000/api/cars/16" \
+    "http://127.0.0.1:8000/api/cars/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/cars/16"
+    "http://127.0.0.1:8000/api/cars/1"
 );
 
 const headers = {
@@ -2529,10 +3938,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="car_id"                data-endpoint="DELETEapi-cars--car_id-"
-               value="16"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the car. Example: <code>16</code></p>
+<p>The ID of the car. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -2549,14 +3958,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/cars/16/favorite" \
+    "http://127.0.0.1:8000/api/cars/1/favorite" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/cars/16/favorite"
+    "http://127.0.0.1:8000/api/cars/1/favorite"
 );
 
 const headers = {
@@ -2649,10 +4058,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="car_id"                data-endpoint="POSTapi-cars--car_id--favorite"
-               value="16"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the car. Example: <code>16</code></p>
+<p>The ID of the car. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -2693,7 +4102,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-user-cars">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -2702,11 +4111,10 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 vary: Origin
-set-cookie: XSRF-TOKEN=eyJpdiI6IlJFcW1qT3lNTll3TVBXMFFITkJTWmc9PSIsInZhbHVlIjoiaVFQUnlwM1NvNnFXOHpiMVdLbWZMWFNpRHdqMkJGdDhYRzh1RHBzN3Z3SmgzTHlnVDZrTWZ3S2ZNZnpCaWRHV1MwVUUxZVBUb2NtL1I5dlU0VFlyeEdQL200c05uS2dGcTFScUEwdng5bEdaT2RSdXFJdFd5cEJObnl6ZHVCaVUiLCJtYWMiOiIyODcyYWVhNWI5MjM2MjcxODlmOGE1YWEzZjc3YTFjZjZhYjQ0MTA4ZjMwYzJmYTE3NTViYTVlMGQzZWE1ZDY3IiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; samesite=lax; laravel_session=eyJpdiI6IndQc0ovaER3MFlteWVIaUxlbExXQ3c9PSIsInZhbHVlIjoiKzk3NUJydXRLb2ljOFp5NFU4WHZuN2I4T3RpZ0VpbXdZRnpvTmtJcXd5Wnl0MnBqb2NyY2lqSVo5QnVJR2thN0tVejloQ0l2dWliOFYxc2I5UHp1UmtFbktQeEorZmU1S3VJbTdyNHZnTFc4NjBSaEQ4M0RlWDVETEJXUTF6QXoiLCJtYWMiOiJiZTYxYjNkN2Q0NGYzNjhmMjdlZTNmNTIzYWNmMjAwYjZlZTZiNWYwMTkxNDI4MzAyYWJjMTQ4MTE3YjJiZDlmIiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>
@@ -2818,7 +4226,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-user-favorites">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -2827,11 +4235,10 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 vary: Origin
-set-cookie: XSRF-TOKEN=eyJpdiI6IlZacDRURFE3anFkUlI2SXRBYjVWK3c9PSIsInZhbHVlIjoiSVFnSkxkMndDcnNQancrcmhHa25uKzh5aGZBYisrSUpad2kxMjAyaXcxU2RxVXdlVnJjTnlmVEthZ21FN3NEL2hYSFMyTm5Ba0xvdDNpcTdLT24yLzZKaDVDUHVRYmpKLy9KQ3hnc2ZDRkovTGZIRkhUOVZBbEFpZ1pZUUorYmUiLCJtYWMiOiIyNDI1MjQ3MzAwMGE4M2E0ZGRjNDg4M2E0ZWI2ZmM5N2Q4MDBhYzljMWVkOWYyMjg4YjJlYjc0OTgyYTE3OTI3IiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; samesite=lax; laravel_session=eyJpdiI6IkNtOFM1dk9lYVh6S0ZiU2VNWjlhN0E9PSIsInZhbHVlIjoicFIvMVN2Y0UvUGNrdGZYOTduSGl6QjFsWTB3ZzVnWUhUUVF4SG9Jem9DV2ZHdUd3TkZCZnU1V2FmeVFod1BQMk5FRFl6alZwUExDbVpNVFljY1dSVGhvYlR0M3hja012RzVIR0VLek1ubUIrYzliZ2gweHZyZnJhR2RtVkFkZUwiLCJtYWMiOiIzY2M3ODYzM2YxM2YzZDE1NDk0NjYzZDI0OWMwNjM1YTY5M2JiZjE0OGJlODQ2ZmQ3ZDBiN2U1MGFiZDc1MDk3IiwidGFnIjoiIn0%3D; expires=Tue, 17 Jun 2025 15:47:11 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;Server Error&quot;
 }</code>
  </pre>
     </span>

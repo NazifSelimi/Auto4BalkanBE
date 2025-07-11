@@ -11,9 +11,18 @@ use App\Services\CarService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Gate;
 
+/**
+ * Class CarController
+ *
+ * @package App\Http\Controllers
+ */
 class CarController extends Controller
 {
+    /**
+     * CarController constructor.
+     */
     public function __construct(
         private CarService $carService
     ) {}
@@ -122,24 +131,25 @@ class CarController extends Controller
      */
     public function store(StoreCarRequest $request): JsonResponse
     {
-            $car = $this->carService->createCar(
-                $request->validated(),
-                $request->user()
-            );
+        $car = $this->carService->createCar(
+            $request->validated(),
+            $request->user()
+        );
 
-            // ✅ Load all required relationships and prevent recursion
-            $car->load([
-                'images',
-                'specifications',
-                'seller:id,name,email,phone,avatar,email_verified_at,created_at,updated_at',
-                'favorites' => fn ($q) => $q->where('user_id', $request->user()->id),
-            ]);
-            $car->loadCount('favorites');
+        // Load all required relationships and prevent recursion
+        $car->load([
+            'images',
+            'specifications',
+            'seller:id,name,email,phone,avatar,email_verified_at,created_at,updated_at',
+            'favorites' => fn ($q) => $q->where('user_id', $request->user()->id),
+        ]);
+        $car->loadCount('favorites');
 
-            return response()->json([
-                'message' => 'Car listed successfully',
-                'car_id' => $car->id,
-            ]);
+        return response()->json([
+            'message' => 'Car listed successfully',
+            'car_id' => $car->id,
+            'data' => new CarResource($car),
+        ]);
     }
 
 
@@ -169,8 +179,8 @@ class CarController extends Controller
      */
     public function destroy(Request $request, Car $car): JsonResponse
     {
-        // Check if user owns the car
-        if ($car->seller_id !== $request->user()->id) {
+        // Use policy for authorization
+        if (Gate::denies('delete', $car)) {
             return response()->json([
                 'message' => 'Unauthorized to delete this car',
             ], 403);

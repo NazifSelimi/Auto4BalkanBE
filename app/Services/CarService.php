@@ -13,6 +13,13 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * Class CarService
+ *
+ * Handles car-related business logic.
+ *
+ * @package App\Services
+ */
 class CarService
 {
     /**
@@ -46,7 +53,6 @@ class CarService
     {
         $query = Car::with([
             'images',
-            // ✅ Ensure all fields needed by UserResource are loaded
             'seller:id,name,email,phone,avatar,email_verified_at,created_at,updated_at',
         ])
             ->where('featured', true)
@@ -133,7 +139,7 @@ class CarService
                 'drive_type' => $data['specifications']['drive_type'] ?? null,
             ]);
 
-            // Handle image uploads
+            // Handle image uploads (consider moving to FileUploadService)
             if (isset($data['images'])) {
                 $this->uploadCarImages($car, $data['images']);
             }
